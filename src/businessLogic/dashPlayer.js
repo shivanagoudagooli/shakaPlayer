@@ -21,13 +21,13 @@ function initPlayer() {
   // Create a Player instance.
   var video = document.getElementById('video');
   var player = new shaka.Player(video);
-  console.log(player,"jhjhkjhhkjhjhkhkhjkhhk");
 
   // Attach player to the window to make it easy to access in the JS console.
   window.player = player;
 
   // Listen for error events.
   player.addEventListener('error', onErrorEvent);
+
 
   // Try to load a manifest.
   // This is an asynchronous process.
@@ -36,6 +36,8 @@ function initPlayer() {
     console.log('The video has now been loaded!');
   }).catch(onError);  // onError is executed if the asynchronous load fails.
 }
+
+
 
 function onErrorEvent(event) {
   // Extract the shaka.util.Error object from the event.

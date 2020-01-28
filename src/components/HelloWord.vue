@@ -1,7 +1,7 @@
 <template>
   <div>
-      <div>
-          <img src="../assets/play-button.png" id="img" v-on:click="play">
+      <div v-if="show">
+          <img  src="../assets/play-button.png" id="img" v-on:click="play">
       </div>
         <video id="video" class="video"
            width="640px"
@@ -9,20 +9,23 @@
            controls
            ></video>
   </div>
-
 </template>
 
 <script>
 import * as func from '../businessLogic/dashPlayer';
 
 export default{
+    data(){
+        return{
+            show:true
+        }
+    },
 created(){
 },
 mounted(){
 },
 methods:{
     play(){
-        // this.$router.push('justPage');
         func.initPlayer;
     }
 }
